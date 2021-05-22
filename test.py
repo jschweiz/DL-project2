@@ -1,6 +1,5 @@
 from helpers import generate_data, evaluate_model
 import dlcustomlib.nn as nn, dlcustomlib.optim as optim
-import matplotlib.pyplot as plt
 import torch
 
 torch.set_grad_enabled(False)
