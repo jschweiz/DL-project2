@@ -1,1 +1,3 @@
-links.md
+/data/*
+/to_remove/*
+__pycache__/
