@@ -33,5 +33,25 @@ The framwork only requirement is `Torch`. No additional modules are necessary to
 The `comparison.py` file is generating plots, so `matplotlib.pyplot` is needed.
 The `notebok`was used for development and several other libraries may be needed to run its full content. 
 
+### What to run
+
+The framework is packaged in the `dlcustomlib` folder. Just `import dlcusomlib.nn, dlcustomlib.optim` to start using it. The way to initalize the classes and train networks is exactly the same as with `Torch`, to ONE expection:
+
+Instead of calling
+```
+loss.backward()
+```
+to run the backward pass, just use
+```
+dloss = criterion.dloss(predicted, labels)
+network.backward(dloss)
+```
+
+Other instanciations, object creations and training requirements (`optimizer.zero_grad()`, `loss = criterion(predicted, labels)`, `optimizer.step()`) are identical to `Torch`.  
+
+### How it is run
+
+Cf project report
+
 ### Projet report
 Project report is available in `report.pdf`.
