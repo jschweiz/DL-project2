@@ -10,20 +10,23 @@ The repository is organized the following way:
 DL-PROJECT2/
 ├── README.md             # overview of the project 
 ├── test.py               # test file requested in subject
-├── compare.py            # file to run performance comparision 
+├── compare.py            # file to run performance comparison 
+├── compare_beta.py       # file to run performance comparison for CNNs
 ├── notebook.ipynb        # development notebook
 ├── helpers.py            # data generation and training functions
 |
 ├── dlcustomlib/          # package containng the custom framework 
     ├── nn/
         ├── modules/
-            └── Linear/Sequential/MSELoss/ReLU/Tanh.py
+            └── Linear/Sequential/MSELoss/ReLU/Tanh/etc.py
+        ├── modules_beta/
+            └── Convd2d/CrossEntropyLoss/Flatten.py
         └── Activation/Loss/BaseModule.py           
     └── optim/
         ├── Optimizer.py
         └── SGD.py              
 |
-├── data/                 # comparison plots
+└── data/                 # comparison plots
 ```
 
 
@@ -48,6 +51,20 @@ network.backward(dloss)
 ```
 
 Other instanciations, object creations and training requirements (`optimizer.zero_grad()`, `loss = criterion(predicted, labels)`, `optimizer.step()`) are identical to `Torch`.  
+
+## What modules are available
+
+Modules present in the `nn\modules\` folder are available and working:
+* `Linear`: fully connected linear layer
+* `Sequential`: embedding to create a succession of layers
+* `TanH`: tanh activation layer
+* `ReLU`: relu activation layer
+* `MSELoss`: layer to compute MSE loss
+
+
+
+
+ We also started the implementation of a few other layers (in `nn\modules_beta\`). `Conv2d`, `CrossEntropyLoss` and `Flatten` are working, but `MxPool2d` does not have backward pass implemented
 
 ### How it is run
 

@@ -1,9 +1,11 @@
 from ..Activation import Activation
 
+def relu_f(x):
+    return x * (x > 0)
+
+def relu_b(x):
+    return (x > 0)
+
 class ReLU(Activation):        
-    def forward(self, x):
-        super().forward(x)
-        return x * (x > 0)
-    
-    def backward(self, *output_grad):
-        return (self.x > 0) * output_grad[-1]
+    def __init__(self):
+        super().__init__(fwd_func=relu_f, bwd_func=relu_b)
